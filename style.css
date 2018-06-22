@@ -1,0 +1,28 @@
+body{
+  padding: 2em;
+}
+.head{
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.form{
+  border: 1px solid black;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.info{
+  margin-top: 3em;
+}
+
+#monthlyCost{
+  text-align: center;
+  font-size: 2em;
+}
+
+.delete{
+  background-color: red;
+  border-radius: 1em;
+  border: none;
+}
