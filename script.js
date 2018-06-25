@@ -36,15 +36,24 @@ function submitClicked(){
   let flag = true;
   $('input').each(function(){
     if($(this).val() == ''){
-      console.log('h');
-
       flag = false;
+      $('#warning').text('You must fill in all the fields');
     }
   });
+
+  let findID = employees.find(function(employee){
+    return employee.id == $('#ID').val();
+  });
+
+  if(findID){
+    flag = false;
+    $('#warning').text('Employee with the same ID exists');
+  }
 
   let tableBody = $('.tableBody');
 
   if(flag){
+    $('#warning').text('');
 
     employees.push(new Employee($('#fName').val(),$('#lName').val(),$('#ID').val(),$('#title').val(),$('#salary').val()));
 
@@ -60,6 +69,7 @@ function submitClicked(){
     console.log(tr.append([action, firstName, lastName, id, title, salary]));
 
     $(tableBody).append(tr);
+    $('input').val('');
   }
 
   calculateCost();
